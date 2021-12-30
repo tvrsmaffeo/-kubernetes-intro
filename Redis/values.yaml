@@ -628,3 +628,4 @@ podSecurityPolicy:
   ## Specifies whether a PodSecurityPolicy should be created
   ##
   create: false
+
