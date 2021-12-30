@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: go-hello-app
+  name: go-hello-app
+  namespace: virtualizacao
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: go-hello-app
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: go-hello-app
+    spec:
+      containers:
+      - image: hellko-app:1.0.0
+        name: hellko-app
+        resources: {}
+        env:
+	- name: console.log 
+	  valueFrom:
+	   configMapKeyRef:
+	     name: go-hello.config
+	     key: port
+	- name: res.send
+	  value: Guilherme
+status: {}
